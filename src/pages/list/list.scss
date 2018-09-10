@@ -1,251 +1,265 @@
 page-list {
    #title{
-   	font-family: Avenir-Medium;
-	font-size: 16px;
-	color: #4A4A4A;
-	text-align: left;
-	text-align: center;
-	display: inline-block;
+    font-family: Avenir-Medium;
+    margin-top: 10px;
+  font-size: 16px;
+  color: #4A4A4A;
+  text-align: left;
+  text-align: center;
+  display: inline-block;
    }
    #messages{
-   	height: 40px; 
-   	width:40px;
-   	background-color: transparent;
-   	float: right;
-   	margin-right: 20px;
-   	span{
-   		background-color: color($colors, primary);
-   		border-radius: 50%;
-   		color:white;
-   		position: absolute;
-   		top: 7px;
-   		left: 89%;
-   		padding:3px;
-   		padding-left:7px;
-   		padding-right:7px;
+    height: 40px; 
+    width:40px;
+    background-color: transparent;
+    float: right;
+    margin-right: 20px;
+    span{
+      background-color: color($colors, primary);
+      border-radius: 50%;
+      color:white;
+      position: absolute;
+      top: 7px;
+      left: 89%;
+      padding:3px;
+      padding-left:7px;
+      padding-right:7px;
 
-   	}
+    }
    }
    .subtitle{
-   	font-family: Avenir-Medium;
-	font-size: 16px;
-	color: #4A4A4A;
-	text-align: left;
+    font-family: Avenir-Medium;
+  font-size: 16px;
+  color: #4A4A4A;
+  text-align: left;
    }
    .range-md .range-knob-handle .range-pin {
-	  transform: translate3d(0, 0, 0) scale(1); }
+    transform: translate3d(0, 0, 0) scale(1); }
 
-	.range-md:not(.range-has-pin) .range-knob-handle .range-knob {
-	  transform: scale(1); }
+  .range-md:not(.range-has-pin) .range-knob-handle .range-knob {
+    transform: scale(1); }
 
-	.range-ios .range-knob-handle .range-pin {
-	  transform: translate3d(0, 0, 0) scale(1); }
+  .range-ios .range-knob-handle .range-pin {
+    transform: translate3d(0, 0, 0) scale(1); }
   .ageDiv{
-  	padding-top: 20px;
-  	padding-left: 10px;
-  	border-bottom: 1px solid rgba(242, 242, 242, 1);
-  	button{
-  		text-align: left;
-  		background-color: transparent;
-  		width: 40%;
-  		margin-top: 20px;
-  		margin-left: 1%;
-  		margin-right: 7%;
-  		span{
-  			font-family: Avenir-Book;
-			font-size: 16px;
-			color: #4A4A4A;
-			text-align: left;
-  		}
-  		ion-checkbox{
-  			float: right;
-  		}
-  	}
+    padding-top: 20px;
+    padding-left: 10px;
+    border-bottom: 1px solid rgba(242, 242, 242, 1);
+    button{
+      text-align: left;
+      background-color: transparent;
+      width: 40%;
+      margin-top: 20px;
+      margin-left: 1%;
+      margin-right: 7%;
+      span{
+        font-family: Avenir-Book;
+      font-size: 16px;
+      color: #4A4A4A;
+      text-align: left;
+      }
+      ion-checkbox{
+        float: right;
+      }
+    }
 
   }
   .othersDiv{
-  	padding-top: 15px;
-  	padding-left: 10px;
-  	border-bottom: 1px solid rgba(242, 242, 242, 1);
-  	padding-bottom: 20px;
-  	button{
-  		background-color: transparent;
-  		font-family: Avenir-Medium;
-		font-size: 16px;
-		color: #4A4A4A;
-		text-align: left;
-		float: right; 
-		text-align: right;
-		margin-top: -10px;
-		img{
-			margin-left: 20px;
-		}
-  	}
+    padding-top: 15px;
+    padding-left: 10px;
+    border-bottom: 1px solid rgba(242, 242, 242, 1);
+    padding-bottom: 20px;
+    button{
+      background-color: transparent;
+      font-family: Avenir-Medium;
+    font-size: 16px;
+    color: #4A4A4A;
+    text-align: left;
+    float: right; 
+    text-align: right;
+    margin-top: -10px;
+    img{
+      margin-left: 20px;
+    }
+    }
   }
   #randomSearchBtn{
-  	width:47%;
-  	margin-top: 15px;
-  	text-align: center;
-	border: 1px solid #6CB4F3;
-	box-shadow: 0 2px 4px 0 #E5E6EA;
-	border-radius: 40px;
-	font-family: Avenir-Heavy;
-	font-size: 14px;
-	color: #6CB4F3;
-	letter-spacing: 1px;
-	display: inline-block;
+    width:47%;
+    margin-top: 15px;
+    text-align: center;
+  border: 1px solid #6CB4F3;
+  box-shadow: 0 2px 4px 0 #E5E6EA;
+  border-radius: 40px;
+  font-family: Avenir-Heavy;
+  font-size: 14px;
+  color: #6CB4F3;
+  letter-spacing: 1px;
+  display: inline-block;
   }
 
   #findSearchBtn{
-	border: 1px solid #DE127A;
-	box-shadow: 0 2px 4px 0 #E5E5E6;
-	border-radius: 28px;
-	font-family: Avenir-Heavy;
-	font-size: 12px;
-	color: #DE127A;
-	letter-spacing: 1px;
-	width: 47%;
-	text-align: center;
-	display: inline-block;
-	margin-left: 10px;
+  border: 1px solid #DE127A;
+  box-shadow: 0 2px 4px 0 #E5E5E6;
+  border-radius: 28px;
+  font-family: Avenir-Heavy;
+  font-size: 12px;
+  color: #DE127A;
+  letter-spacing: 1px;
+  width: 47%;
+  text-align: center;
+  display: inline-block;
+  margin-left: 10px;
   }
   #updateBtn{
-	background: #DE127A;
-	margin-top: 10px;
-	border-radius: 40px;
-	font-family: Avenir-Heavy;
-	font-size: 16px;
-	color: #FFFFFF;
-	text-align: center;
-	letter-spacing: 1px;
+  background: #DE127A;
+  margin-top: 10px;
+  border-radius: 40px;
+  font-family: Avenir-Heavy;
+  font-size: 16px;
+  color: #FFFFFF;
+  text-align: center;
+  letter-spacing: 1px;
   }
   .profileImage{
-  	background-color: rgba(255, 255, 255, 0.5);
-  	width: 90%;
-  	text-align: center;
-  	display: inline-block;
-  	position: relative;
-  	border-radius: 5px;
-  	top: 10px;
-  	box-shadow: 2px 2px 1px rgba(92, 92, 93, 0.1);
-  	img{
-  		margin-top: -60px;
-  	}
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 90%;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    border-radius: 5px;
+    top: 10px;
+    box-shadow: 2px 2px 1px rgba(92, 92, 93, 0.1);
+    img{
+      margin-top: -60px;
+    }
+  }
+  #clearBtn{
+    font-family: Avenir-Heavy;
+  font-size: 11px;
+  color: #DE127A;
+  letter-spacing: 1px;
+  text-align: left;
+  margin-top: 5px;
+  background-color: transparent;
+  position: absolute;
+  left: -5px;
+  box-shadow: none;
+  display: none;
   }
   #editBtn{
-	font-family: Avenir-Heavy;
-	font-size: 13px;
-	color: #DE127A;
-	letter-spacing: 1px;
-	text-align: left;
-	text-align: center;
-	margin-top: -10px;
-	background-color: transparent;
+  font-family: Avenir-Heavy;
+  font-size: 13px;
+  color: #DE127A;
+  letter-spacing: 1px;
+  text-align: left;
+  text-align: center;
+  margin-top: 5px;
+  background-color: transparent;
   }
   #morePhotos{
-	background: #6CB4F3;
-	border-radius: 10px;
-	font-family: Avenir-Medium;
-	font-size: 14px;
-	color: #FFFFFF;
-	letter-spacing: 0.5px;
-	text-align: center;
-	width: 50%;
-	padding:5px;
-	display: inline-block;
+  background: #6CB4F3;
+  border-radius: 10px;
+  font-family: Avenir-Medium;
+  font-size: 14px;
+  color: #FFFFFF;
+  letter-spacing: 0.5px;
+  text-align: center;
+  width: 50%;
+  padding:5px;
+  display: inline-block;
   }
   #bio{
-  	text-align: left;
-  	padding-left: 5px;
-  	strong{
-	font-family: Avenir-Heavy;
-	font-size: 16px;
-	color: #4A4A4A;
-  	}
-  	textarea{
-  		margin-top: 10px;
-  		width: 100%;
-  		resize:none;
-  		border: none;
-	    background-color: transparent;
-		font-family: Avenir-Light;
-		font-size: 16px;
-		color: #4A4A4A;
-		text-align: left;
-		line-height: 25px;
-  	}
+    text-align: left;
+    padding-left: 5px;
+    strong{
+  font-family: Avenir-Heavy;
+  font-size: 16px;
+  color: #4A4A4A;
+    }
+    textarea{
+      margin-top: 10px;
+      width: 100%;
+      resize:none;
+      border: none;
+      background-color: transparent;
+    font-family: Avenir-Light;
+    font-size: 16px;
+    color: #4A4A4A;
+    text-align: left;
+    line-height: 25px;
+    }
   }
   #myPhotos{
-  	margin-top: 20px;
-	text-align: left;
-	padding-left: 20px;
-  	span{
-		font-family: Avenir-Heavy;
-		font-size: 16px;
-		color: #DE127A;
-		letter-spacing: 1px;
-  	}
-  	img{
-  		height:110px;
-  		width: 110px;
-  	}
+    margin-top: 20px;
+  text-align: left;
+  padding-left: 20px;
+    span{
+    font-family: Avenir-Heavy;
+    font-size: 16px;
+    color: #DE127A;
+    letter-spacing: 1px;
+    }
+    img{
+      height:110px;
+      width: 110px;
+    }
   }
   #editBtn{
-  	width:20%;
-  	float: right;
-	font-family: Avenir-Medium;
-	font-size: 14px;
-	color: #DE127A;
-	letter-spacing: 0;
-	text-align: center;
+    width:20%;
+    float: right;
+  font-family: Avenir-Medium;
+  font-size: 14px;
+  color: #DE127A;
+  letter-spacing: 0;
+  text-align: center;
   }
   #searchDiv{
-  	background-color: white;
-  	margin: 10px;
-  	box-shadow: 2px 2px 1px lightgrey;
-  	border-radius: 3px;
-  	padding: 2px;
-  	ion-icon{
-  		font-size: 23px;
-  		margin-top: 10px;
-  		color: grey;
-  	}
-  	input{
-  		width: 82%;
-  		height: 30px;
-  		background-color: white;
-  		margin: 0px;
-  		border:none;
-  		position: relative;
-  		top:-5px;
-  		padding-left: 10px;
-  		font-size: 16px;
-  		font-family: Avenir-Medium;
-  	}
-  	button{
-  		width:8%;
-  		height: 35px;
-  		float: right;
-  		background-color: white;
-  	}
+    background-color: white;
+    margin: 10px;
+    box-shadow: 2px 2px 1px lightgrey;
+    border-radius: 3px;
+    padding: 2px;
+    ion-icon{
+      font-size: 23px;
+      margin-top: 10px;
+      color: grey;
+    }
+    input{
+      width: 82%;
+      height: 30px;
+      background-color: white;
+      margin: 0px;
+      border:none;
+      position: relative;
+      top:-5px;
+      padding-left: 10px;
+      font-size: 16px;
+      font-family: Avenir-Medium;
+    }
+    button{
+      width:8%;
+      height: 35px;
+      float: right;
+      background-color: white;
+    }
 
   }
    .distinguish {
             width: 60%;
-            padding: 0;
+            padding: 0px;
             border-radius: 5px;
             overflow: hidden;
-            height: 23px;
+            height: 30px;
             float: left;
             border: 1px solid color($colors, primary);
             text-align: center;
-            margin-left: 15%;
+            margin-left: 16%;
             .selected {
                 width: 50%;
                 height: 100%;
                 background: color($colors, primary);
                 text-align: center;
-                font-size: 10px;
+                font-size: 12px;
                 color: white;
             }
             .unselected {
@@ -253,77 +267,158 @@ page-list {
                 height: 100%;
                 background: white;
                 text-align: center;
-                font-size: 10px;
+                font-size: 12px;
                 color: color($colors, primary);
             }
         }
   ion-list{
-  	background-color: white;
-  	height: 100%;
-  	button{
-  		.blurredImage{
-  			 -webkit-filter: blur(1.8px);
-			  -moz-filter: blur(1.8px);
-			  -o-filter: blur(1.8px);
-			  -ms-filter: blur(1.8px);
-			  filter: blur(1.8px);
-  		}
-  		.status{
-			height: 15px;
-			margin-left: -20px;
-			border-radius: 50%;
-  		}
-  		.img{
-  			width:55px;
-  			height:55px;
-  			border-radius: 50%;
-  		}
-  		.time{
-			font-family: Avenir-Heavy;
-			font-size: 12px;
-			color: #000000;
-			letter-spacing: 1px;
-			text-align: right;
-  		}
-  		.name{
-			font-family: Avenir-Book;
-			font-size: 16px;
-			color: #000000;
-			letter-spacing: 1px;
-			text-align: left;
-  		}
-  		.message{
-			font-family: Avenir-Book;
-			font-size: 14px;
-			color: #000000;
-			text-align: left;
-			margin-top: 5px;
-  		}
-  		.unreadText{
-  			font-size: 12px;
-  			color:white;
-  			padding: 2px;
-  			margin-top: 3px;
-  			background-color: color($colors, primary);
-  			padding-left:5px;
-  			padding-right: 5px;
-  			border-radius: 10px;
-  			float: right;
-  		}
-  	}
+    background-color: white;
+    height: 100%;
+    button{
+
+      .blurredImage{
+         -webkit-filter: blur(1.8px);
+        -moz-filter: blur(1.8px);
+        -o-filter: blur(1.8px);
+        -ms-filter: blur(1.8px);
+        filter: blur(1.8px);
+      }
+      .smalDel{
+        height:22px;
+        position: relative;
+        top: -15px;
+        left: -2px;
+      }
+      .status{
+      height: 15px;
+      margin-left: -20px;
+      border-radius: 50%;
+      }
+      .img{
+        width:55px;
+        height:55px;
+        border-radius: 50%;
+      }
+      .time{
+      font-family: Avenir-Heavy;
+      font-size: 12px;
+      color: #000000;
+      letter-spacing: 1px;
+      text-align: right;
+      }
+      .name{
+      font-family: Avenir-Book;
+      font-size: 16px;
+      color: #000000;
+      letter-spacing: 1px;
+      text-align: left;
+      }
+      .message{
+      font-family: Avenir-Book;
+      font-size: 14px;
+      color: #000000;
+      text-align: left;
+      margin-top: 5px;
+      .mediaIcon{
+        margin-right: 10px;
+        font-size: 20px;
+        color: grey;
+      }
+      }
+      .unreadText{
+        font-size: 12px;
+        color:white;
+        padding: 2px;
+        margin-top: 3px;
+        background-color: color($colors, primary);
+        padding-left:5px;
+        padding-right: 5px;
+        border-radius: 10px;
+        float: right;
+      }
+    }
   }
   ion-footer{
-  	background-color: white;
-  	margin-top: 0px;
-  	height:40px;
-  	.footerBtn{
-  		width: 45%;
-  		display: inline-block;
-		font-family: Avenir-Medium;
-		font-size: 14px;
-		color: #DE127A;
-		letter-spacing: 0;
-  	}
+    background-color: white;
+    margin-top: 0px;
+    height:40px;
+    .footerBtn{
+      width: 45%;
+      display: inline-block;
+    font-family: Avenir-Medium;
+    font-size: 14px;
+    color: #DE127A;
+    letter-spacing: 0;
+    }
   }
+  .imgProf{
+    margin-top: 5px;
+    width: 95%;
+    height: 95%;
+    -webkit-filter: blur(4px);
+        -moz-filter: blur(4px);
+        -o-filter: blur(4px);
+        -ms-filter: blur(4px);
+        filter: blur(4px);
+  }
+  #div1{
+    margin-top: 5%;
+    height:63%;
+    width: 92%;
+    background-color: white;
+    display: inline-block;
+    border: 1px solid lightgrey;
+    transform : rotate(-1deg);
+  }
+  #div2{
+    height:102%;
+    width: 102%;
+    background-color: white;
+    display: inline-block;
+    border: 1px solid lightgrey;
+    transform : rotate(5deg);
+  }
+  .div3{
+    margin-top: 15px;
+    height:90%;
+    width: 90%;
+    background-color: white;
+    display: inline-block;
+    transform : rotate(-5deg);
+  }
+  #searchActions{
+    margin-top: 40px;
+    width: 110%;
+    background-color: white;
+    margin-left: -25px;
+    padding-bottom: 11.5%;
+    border-radius: 50% 50% 0% 0% ;
+    #nameSearch{
+      font-size: 28px;
+      color: #4A4A4A;
+      font-family: Avenir-Book;
+      letter-spacing: 0.58px;
+      padding-top: 30px;
+    }
+    div{
+      font-family: Avenir-Book;
+      font-size: 12px;
+      color: #4A4A4A;
+      margin-top: 5px;
+      letter-spacing: 0.5px;
+    }
+    button{
+      width:40%;
+      height: 40px;
+      display: inline-block;
+      border-radius: 40px;
+      background: #6CB4F3;
+      font-family: Avenir-Heavy;
+      letter-spacing: 1px;
+      text-align: center;
+      box-shadow: 2px 2px 1px lightgrey
+    }
+  }
+
 }
 

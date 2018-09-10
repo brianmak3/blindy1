@@ -3815,6 +3815,48 @@ ion-icon::before {
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../assets/fonts/noto-sans-bold.woff") format("woff"), url("../assets/fonts/noto-sans-bold.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../assets/fonts/sourcesanspro-black-webfont.woff2") format("woff2"), url("../assets/fonts/sourcesanspro-black-webfont.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../assets/fonts/sourcesanspro-bold-webfont.woff2") format("woff2"), url("../assets/fonts/sourcesanspro-bold-webfont.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../assets/fonts/sourcesanspro-extralight-webfont.woff2") format("woff2"), url("../assets/fonts/sourcesanspro-extralight-webfont.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../assets/fonts/sourcesanspro-light-webfont.woff2") format("woff2"), url("../assets/fonts/sourcesanspro-light-webfont.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../assets/fonts/sourcesanspro-regular-webfont.woff2") format("woff2"), url("../assets/fonts/sourcesanspro-regular-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../assets/fonts/sourcesanspro-semibold-webfont.woff2") format("woff2"), url("../assets/fonts/sourcesanspro-semibold-webfont.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
 ion-action-sheet {
   left: 0;
   top: 0;
@@ -3895,6 +3937,8 @@ ion-action-sheet {
   border-radius: 13px;
   margin-bottom: 8px;
   background: #f9f9f9;
+  -webkit-overflow-scrolling: touch;
+  -webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000);
 }
 
 .action-sheet-ios .action-sheet-group:first-child {
@@ -4006,6 +4050,11 @@ ion-action-sheet {
   font-weight: bold;
 }
 
+.action-sheet-wp .action-sheet-wrapper {
+  -webkit-box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
 .action-sheet-wp .action-sheet-title {
   text-align: left;
   text-align: start;
@@ -4043,8 +4092,6 @@ ion-action-sheet {
 
 .action-sheet-wp .action-sheet-group:first-child {
   padding-top: 0.8rem;
-  -webkit-box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
 }
 
 .action-sheet-wp .action-sheet-group:last-child {
@@ -4876,10 +4923,6 @@ textarea:-ms-input-placeholder {
   padding-left: 2px;
 }
 
-textarea::-ms-input-placeholder {
-  padding-left: 2px;
-}
-
 textarea::placeholder {
   padding-left: 2px;
 }
@@ -5040,7 +5083,7 @@ ion-input :focus {
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
 }
@@ -5527,19 +5570,19 @@ ion-footer {
 }
 
 ion-app.ios {
-  font-family: -apple-system, "Helvetica Neue", "Roboto", sans-serif;
+  font-family: "Source Sans Pro", -apple-system, "Helvetica Neue", "Roboto", sans-serif;
   font-size: 1.4rem;
   background-color: #fff;
 }
 
 ion-app.md {
-  font-family: "Roboto", "Helvetica Neue", sans-serif;
+  font-family: "Source Sans Pro", "Roboto", "Helvetica Neue", sans-serif;
   font-size: 1.4rem;
   background-color: #fff;
 }
 
 ion-app.wp {
-  font-family: "Segoe UI", "Noto Sans", sans-serif;
+  font-family: "Source Sans Pro", "Segoe UI", "Noto Sans", sans-serif;
   font-size: 1.4rem;
   background-color: #fff;
 }
@@ -13869,8 +13912,8 @@ input.text-input:-webkit-autofill {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  -webkit-box-orient: inherit;
-  -webkit-box-direction: inherit;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
   -webkit-flex-direction: inherit;
   -ms-flex-direction: inherit;
   flex-direction: inherit;
@@ -13895,8 +13938,8 @@ input.text-input:-webkit-autofill {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  -webkit-box-orient: inherit;
-  -webkit-box-direction: inherit;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
   -webkit-flex-direction: inherit;
   -ms-flex-direction: inherit;
   flex-direction: inherit;
@@ -16845,7 +16888,7 @@ ion-popover {
 
 .popover-ios .popover-content {
   border-radius: 10px;
-  width: 200px;
+  width: auto;
   min-width: 0;
   min-height: 0;
   max-height: 90%;
@@ -16898,7 +16941,7 @@ ion-popover {
   border-radius: 2px;
   -webkit-transform-origin: left top;
   transform-origin: left top;
-  width: 250px;
+  width: auto;
   min-width: 0;
   min-height: 0;
   max-height: 90%;
@@ -16918,7 +16961,7 @@ ion-popover {
   border-radius: 0;
   -webkit-transform-origin: left top;
   transform-origin: left top;
-  width: 200px;
+  width: auto;
   min-width: 0;
   min-height: 0;
   max-height: 90%;
@@ -19655,23 +19698,23 @@ button.swiper-pagination-bullet {
 }
 
 .swiper-container-3d .swiper-slide-shadow-left {
-  background-image: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
-  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0.5)), to(transparent));
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), transparent);
 }
 
 .swiper-container-3d .swiper-slide-shadow-right {
-  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.5)), to(transparent));
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent);
 }
 
 .swiper-container-3d .swiper-slide-shadow-top {
-  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.5)), to(transparent));
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
 }
 
 .swiper-container-3d .swiper-slide-shadow-bottom {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(transparent));
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
 }
 
 .swiper-container-coverflow .swiper-wrapper,
@@ -27800,7 +27843,7 @@ ion-navbar.toolbar {
   }
 }
 
-.ios .tabs:not(.tabs-ios[tabsPlacement=top]) .tabbar {
+.ios .tabs .tabbar {
   padding-bottom: constant(safe-area-inset-bottom);
   padding-bottom: env(safe-area-inset-bottom);
 }
@@ -27880,7 +27923,7 @@ ion-navbar.toolbar {
   }
 }
 
-.md .tabs:not(.tabs-ios[tabsPlacement=top]) .tabbar {
+.md .tabs .tabbar {
   padding-bottom: constant(safe-area-inset-bottom);
   padding-bottom: env(safe-area-inset-bottom);
 }
@@ -27960,7 +28003,7 @@ ion-navbar.toolbar {
   }
 }
 
-.wp .tabs:not(.tabs-ios[tabsPlacement=top]) .tabbar {
+.wp .tabs .tabbar {
   padding-bottom: constant(safe-area-inset-bottom);
   padding-bottom: env(safe-area-inset-bottom);
 }
@@ -28032,55 +28075,830 @@ ion-footer .version {
   height: 20px;
 }
 
-page-home .ioncontent {
+#local {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  visibility: visible;
+  height: 10%;
+  bottom: 50px;
+  right: 10px;
+  pointer-events: none;
+  opacity: 1;
+  -webkit-transform: scaleX(-1);
+}
+
+#local.preview,
+#remote {
+  position: absolute;
+  z-index: -2;
+  display: block;
+  visibility: visible;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  opacity: 1;
+  -o-object-fit: cover;
+  object-fit: cover;
+  top: 0;
+  right: 0;
+}
+
+.call-buttons {
+  position: absolute;
+  z-index: 99999;
+  bottom: 17vh;
+  text-align: center;
+  width: 100%;
+}
+
+.call-buttons .button {
+  border-radius: 100%;
+  margin: 1.2em;
+  height: 4em;
+  width: 4em;
+  -webkit-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+  padding-top: 0.2em;
   text-align: center;
 }
 
-page-home ion-list ion-item {
-  border: none;
+.call-buttons span:before {
+  font-size: 2.4em !important;
 }
 
-page-home ion-list ion-item ion-label {
-  font-family: Avenir-Medium;
-  font-size: 17px;
-  letter-spacing: 1px;
-  height: red;
+.videos {
+  font-size: 0;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  pointer-events: none;
 }
 
-page-home ion-list ion-item ion-input {
-  border-bottom: 1px solid #DE127A;
+.isInCall {
+  display: none;
 }
 
-page-home ion-list ion-item button {
+.item,
+body,
+ion-app,
+ng-component,
+ion-modal,
+ion-backdrop,
+html {
+  background-color: transparent !important;
+}
+
+*::-webkit-media-controls-panel {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
+*::--webkit-media-controls-play-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
+*::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
+.call-modal {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
   width: 100%;
-  color: #DE127A;
-  height: 45px;
-  border: 1px solid #DE127A;
-  border-radius: 25px;
-  background-color: white;
-  font-size: 14px;
 }
 
-page-home ion-list ion-item .fgPass {
-  height: 20px;
-  border: none;
-  text-decoration: underline;
-  font-family: Avenir-Book;
-  font-size: 14px;
-  color: #6CB4F3;
-  letter-spacing: 0.28px;
+.inCall .inCallUI {
+  display: inherit;
 }
 
-page-home ion-list ion-item .signup {
-  font-family: Avenir-Book;
+.last-text {
+  font-size: .9em;
+  opacity: .7;
+  padding-top: .1em;
+}
+
+.item-avatar .item-content > img:first-child {
+  max-width: 48px;
+  max-height: 48px;
+  left: 0;
+}
+
+.item-avatar .item-content {
+  padding-left: 72px;
+  padding-top: 21px;
+}
+
+.padding-lots {
+  padding: 24px;
+}
+
+.item h2 {
+  font-weight: 400;
+  margin: 0;
+}
+
+.ios .chat .item, .md .chat .item {
   border: none;
-  font-size: 14px;
-  color: #DE127A;
+}
+
+.ios .item-block .item-inner, .md .item-block .item-inner {
+  border-bottom: none;
+  border-top: none;
+}
+
+.ios .back-button-text, .md .back-button-text {
+  display: none;
+}
+
+ion-item, .item {
+  padding: 0;
+}
+
+.chat {
+  padding-bottom: 40px;
+}
+
+page-account h2 {
+  text-align: center;
+  font-size: 3em;
+  font-weight: 300;
+  margin-bottom: 2em;
+}
+
+.button-block {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.login {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.popup-container.active .popup {
+  border-radius: 8px;
+}
+
+.toolbar-ios-light, .toolbar-md-light {
+  border-bottom: 0.5px solid rgba(150, 150, 150, 0.55);
+}
+
+ion-avatar {
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+video {
+  max-width: 100%;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../assets/fonts/sourcesanspro-black-webfont.woff2") format("woff2"), url("../assets/fonts/sourcesanspro-black-webfont.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../assets/fonts/sourcesanspro-bold-webfont.woff2") format("woff2"), url("../assets/fonts/sourcesanspro-bold-webfont.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../assets/fonts/sourcesanspro-extralight-webfont.woff2") format("woff2"), url("../assets/fonts/sourcesanspro-extralight-webfont.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../assets/fonts/sourcesanspro-light-webfont.woff2") format("woff2"), url("../assets/fonts/sourcesanspro-light-webfont.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../assets/fonts/sourcesanspro-regular-webfont.woff2") format("woff2"), url("../assets/fonts/sourcesanspro-regular-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../assets/fonts/sourcesanspro-semibold-webfont.woff2") format("woff2"), url("../assets/fonts/sourcesanspro-semibold-webfont.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+.content-ios,
+.item-ios {
+  color: #393939;
+}
+
+.footer-ios .toolbar-ios:first-child .toolbar-background-ios {
+  border-width: 0;
+}
+
+.toolbar-background-ios {
+  background: #f1f1f1;
+}
+
+page-contacts .chat-list .item {
+  border: 0.5px solid rgba(150, 150, 150, 0.15);
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+
+page-chats .chat-list .item {
+  border: 0.5px solid rgba(150, 150, 150, 0.15);
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+
+page-chats .chat-list .item .last-time {
+  color: #888;
+}
+
+page-chat .chat-item p {
+  font-family: Avenir-Book;
+  font-size: 16px;
+  background: #6CB4F3;
+  color: white;
+}
+
+page-chat .chat-to p {
+  background: #DE127A;
+  font-family: Avenir-Book;
+  font-size: 16px;
+  color: white;
+}
+
+page-chat .text-input {
+  background: #fff;
+}
+
+.message-bar .input-wrapper {
+  background: #fff;
+  border-radius: 6px;
+}
+
+.message-bar ion-toolbar {
+  padding: 12px;
+}
+
+.message-bar .item {
+  min-height: auto;
+}
+
+.message-bar input {
+  font-size: 0.8em;
+}
+
+modal-contact ion-content {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+modal-contact .contact-card {
+  background: #817ecb;
+  width: 90vw;
+  height: 400px;
+  max-width: 300px;
+  margin: 20vh auto 0;
+  text-align: center;
+  border-radius: 8px;
+  position: relative !important;
+  padding: 25px;
+}
+
+modal-contact h2 {
+  color: #fff;
+}
+
+modal-contact button.close {
+  color: #fff;
+}
+
+.md .modal-wrapper {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+page-chat .tail svg {
+  fill: #817ecb;
+}
+
+page-chat .chat-from .tail svg {
+  fill: #ebeaf2;
+}
+
+.send-button {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+/*
+dark {
+	.bar-clear,
+	.item p,
+	h1,
+	h2,
+	h3 p {
+		color: #fff;
+	}
+
+	.toolbar-title {
+		color: #fff;
+		font-weight: 400;
+	}
+
+	.back-button {
+		color: #fff !important;
+	}
+
+	.chat-item p {
+		background: rgba(255,255,255,.1);
+	}
+
+	.chat-list .item .last-time {
+		color: #fff;
+	}
+}
+*/
+modal-call ion-content {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.ios modal-call #local {
+  bottom: 80px;
+}
+
+modal-add-contact .list-ios > .item-block:first-child {
+  border-top: none;
+}
+
+modal-add-contact .list-ios > .item-block:last-child {
+  border-bottom: none;
+}
+
+modal-contact .contact-card img {
+  width: 180px;
+  height: 180px;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+modal-contact user-image {
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 20px;
+}
+
+modal-contact button.action {
+  height: 50px;
+  width: 50px;
+  margin: 10px;
+}
+
+modal-contact button.close {
+  float: right;
+  position: absolute;
+  margin-top: -20px;
+  margin-left: 28vw;
+}
+
+modal-contact h2 {
+  margin-bottom: 30px;
+}
+
+page-account .account-image {
+  height: 180px;
+  width: 180px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 100%;
+}
+
+page-account .account-image img {
+  height: 100%;
+  width: 100%;
+}
+
+page-chat .profileImage {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-top: 3px;
+  margin-left: -5px;
+}
+
+page-chat .name {
+  margin-top: -135px;
+  display: inline-block;
+  font-size: 17px;
+  color: black;
+  width: auto;
+}
+
+page-chat #online {
+  color: #159815;
+  padding-left: 40px;
+  margin-top: -40px;
+  font-family: Avenir-Heavy;
   letter-spacing: 0.58px;
+  max-width: 200px;
+  overflow: hidden;
+}
+
+page-chat #online div {
+  margin-top: 7px;
+}
+
+page-chat .item-ios.item-block .item-inner {
+  padding-right: 0;
+}
+
+page-chat .chat-item ion-avatar img {
+  height: 40px;
+  width: 40px;
+}
+
+page-chat .chat-item p {
+  border-radius: 8px;
+  padding: 10px 16px;
+  overflow: visible;
+  text-overflow: inherit;
+  white-space: normal;
+}
+
+page-chat .item-ios ion-avatar[item-right] {
+  margin-right: 0;
+}
+
+page-chat .item ion-avatar {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+page-chat .item-md.item-block .item-inner {
+  padding-right: 0;
+}
+
+page-chat .item .label-ios, page-chat .item .label-md {
+  margin-top: 0;
+}
+
+page-chat .item .input-wrapper {
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+page-chat .chat .item:not(.chat-first) ion-avatar img {
+  visibility: hidden;
+}
+
+page-chat .chat .item.chat-first {
+  margin-top: 1em;
+}
+
+page-chat .chat .item-avatar {
+  min-height: auto;
+  padding: 0;
+}
+
+page-chat .text-input {
+  padding: 0 .4em 0 3.5em;
+}
+
+page-chat .chat-animate-on .chat-item.ng-enter {
+  -webkit-animation: fadeInUp 0.4s;
+  animation: fadeInUp 0.4s;
+}
+
+page-chat .chat-user:not(:last-child):after {
+  content: ',';
+  margin-right: 0.2em;
+}
+
+page-chat .chat .item:not(.chat-first) .tail {
+  display: none;
+}
+
+page-chat .tail {
+  display: inline-block;
+  margin-left: -16px;
+  position: absolute;
+  margin-top: 9px;
+}
+
+page-chat .tail svg {
+  height: 18px;
+}
+
+page-chat .chat-from .tail {
+  left: 100%;
+  margin-left: -59px;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+page-chat .item-md.chat-from .tail {
+  margin-left: -68px;
+}
+
+page-chat .chat .item ion-avatar img {
+  top: 8px;
+  max-height: 40px;
+  max-width: 40px;
+}
+
+page-chat .moreIcon {
+  font-size: 18px;
+  float: right;
+  background-color: transparent;
+  padding-top: 10px;
+  color: #444444;
+  display: inline-block;
+  width: 52px;
+  text-align: center;
+}
+
+page-chat .myChat {
+  display: inline-block;
+}
+
+page-chat .myChat .message {
+  clear: both;
+  color: white;
+  padding: 10px;
+  display: inline-block;
+  max-width: 70%;
+  float: right;
+  line-height: 20px;
+}
+
+page-chat .myChat .time {
+  clear: both;
+  float: right;
+  font-family: Avenir-Book;
+  font-size: 12px;
+  color: #000000;
+  width: 100%;
+  margin-top: 2px;
+  text-align: right;
+}
+
+page-chat .friendChat .mainMessage {
+  max-width: 70%;
+  display: inline-block;
+}
+
+page-chat .friendChat .mainMessage .message {
+  clear: both;
+  border-radius: 10px;
+  background: #DE127A;
+  font-family: Avenir-Book;
+  font-size: 16px;
+  color: white;
+  padding: 10px;
+  display: inline-block;
+  max-width: 100%;
+  line-height: 20px;
+}
+
+page-chat .friendChat .mainMessage .time {
+  clear: both;
+  font-family: Avenir-Book;
+  font-size: 12px;
+  color: #000000;
+  margin-top: 2px;
+  text-align: right;
+}
+
+page-chat .date {
+  border: none;
+}
+
+page-chat .date div {
+  font-family: Avenir-Book;
+  font-size: 13px;
+  color: black;
+  text-align: center;
+  width: auto;
+}
+
+page-chat .time {
+  clear: both;
+  font-family: Avenir-Book;
+  font-size: 12px;
+  color: #000000;
+  margin-top: 2px;
+  text-align: right;
+}
+
+page-chat ion-footer textarea {
+  width: 70px;
+  display: inline-block;
+  resize: none;
+  font-family: Avenir-Book;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+page-chat ion-footer ion-icon {
+  color: #DE127A;
+  font-size: 30px;
+}
+
+#attachment {
+  display: none;
+}
+
+.send-button {
+  position: relative;
+  right: 1.6em;
+  margin-top: -1.9em;
+  border-left: 1px solid #e4e4e4;
+  border-radius: 0;
+  padding: .2em 0 .2em .7em;
+  height: auto;
+}
+
+.attachment-link {
+  font-size: 1.7em;
+  position: absolute;
+  left: .3em;
+  margin-top: -1.6em;
+  padding: .2em 0 .2em .7em;
+  height: auto;
+}
+
+page-chats .chat-list .item .last-time {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  right: 10px;
+  position: absolute;
+  top: 20px;
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+page-chats .chat-list .item:first-child {
+  border-top: none;
+}
+
+page-chats .chat-list .item:last-child {
+  border-bottom: none;
+}
+
+page-chats .chat-list .item > * {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+page-chats .chat-list .item-avatar {
+  min-height: 70px;
+}
+
+page-chats .item .item-inner {
+  background-position: right 0 center !important;
+}
+
+page-chats .user-img-multi img {
+  display: none;
+}
+
+page-chats .user-img-multi img:first-child,
+page-chats .user-img-multi img:nth-child(2),
+page-chats .user-img-multi img:nth-child(3),
+page-chats .user-img-multi img:nth-child(4) {
+  display: block;
+}
+
+page-chats .user-img-multi.user-img-count2 img {
+  height: 26px;
+  width: 26px;
+}
+
+page-chats .user-img-multi.user-img-count2 img:nth-child(2) {
+  margin-top: -10px;
+  margin-left: 10px;
+}
+
+page-chats .user-img-multi.user-img-count3 img {
+  height: 22px;
+  width: 22px;
+}
+
+page-chats .user-img-multi.user-img-count3 img:nth-child(2) {
+  margin-top: -10px;
+  margin-left: 3px;
+}
+
+page-chats .user-img-multi.user-img-count3 img:nth-child(3) {
+  margin-top: -32px;
+  margin-left: 12px;
+}
+
+page-chats .user-img-multi.user-img-count4 img {
+  height: 20px;
+  width: 20px;
+}
+
+page-chats .user-img-multi.user-img-count4 img:nth-child(2) {
+  margin-top: -6px;
+  margin-left: 3px;
+}
+
+page-chats .user-img-multi.user-img-count4 img:nth-child(3) {
+  margin-top: -34px;
+  margin-left: 12px;
+}
+
+page-chats .user-img-multi.user-img-count4 img:nth-child(4) {
+  margin-top: -7px;
+  margin-left: 16px;
+}
+
+page-chats .chat-list .item h2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 2.2em;
+}
+
+page-contacts {
+  /*
+	.chat-list .item.ng-enter {
+		-webkit-animation: fadeInLeft 0.4s;
+		animation: fadeInLeft 0.4s;
+	}
+	.chat-list .item.ng-leave {
+		-webkit-animation: fadeOutLeft 0.4s;
+		animation: fadeOutLeft 0.4s;
+	}
+	.chat-list .item.ng-enter-stagger {
+		-webkit-animation-delay: 100ms;
+		animation-delay: 100ms;
+		-webkit-animation-duration: 0;
+		animation-duration: 0;
+	}
+	.chat-list .item h2,
+	.chat-list .item img,
+	.chat-list .item p {
+		transition: all 0.3s ease;
+	}
+	.chat-list .item.online img::before {
+		content: ' ';
+		display: block;
+		position: absolute;
+		height: 20px;
+		width: 20px;
+		background: red;
+	}
+	*/
+}
+
+page-contacts .chat-list .item:first-child {
+  border-top: none;
+}
+
+page-contacts .chat-list .item:last-child {
+  border-bottom: none;
+}
+
+page-contacts .chat-list .item-avatar {
+  min-height: 40px;
+}
+
+page-contacts .chat-list .item:not(.online) h2,
+page-contacts .chat-list .item:not(.online) img,
+page-contacts .chat-list .item:not(.online) p {
+  opacity: 0.3;
 }
 
 page-list #title {
   font-family: Avenir-Medium;
+  margin-top: 10px;
   font-size: 16px;
   color: #4A4A4A;
   text-align: left;
@@ -28235,6 +29053,21 @@ page-list .profileImage img {
   margin-top: -60px;
 }
 
+page-list #clearBtn {
+  font-family: Avenir-Heavy;
+  font-size: 11px;
+  color: #DE127A;
+  letter-spacing: 1px;
+  text-align: left;
+  margin-top: 5px;
+  background-color: transparent;
+  position: absolute;
+  left: -5px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  display: none;
+}
+
 page-list #editBtn {
   font-family: Avenir-Heavy;
   font-size: 13px;
@@ -28242,7 +29075,7 @@ page-list #editBtn {
   letter-spacing: 1px;
   text-align: left;
   text-align: center;
-  margin-top: -10px;
+  margin-top: 5px;
   background-color: transparent;
 }
 
@@ -28348,14 +29181,14 @@ page-list #searchDiv button {
 
 page-list .distinguish {
   width: 60%;
-  padding: 0;
+  padding: 0px;
   border-radius: 5px;
   overflow: hidden;
-  height: 23px;
+  height: 30px;
   float: left;
   border: 1px solid #DE127A;
   text-align: center;
-  margin-left: 15%;
+  margin-left: 16%;
 }
 
 page-list .distinguish .selected {
@@ -28363,7 +29196,7 @@ page-list .distinguish .selected {
   height: 100%;
   background: #DE127A;
   text-align: center;
-  font-size: 10px;
+  font-size: 12px;
   color: white;
 }
 
@@ -28372,7 +29205,7 @@ page-list .distinguish .unselected {
   height: 100%;
   background: white;
   text-align: center;
-  font-size: 10px;
+  font-size: 12px;
   color: #DE127A;
 }
 
@@ -28387,6 +29220,13 @@ page-list ion-list button .blurredImage {
   -o-filter: blur(1.8px);
   -ms-filter: blur(1.8px);
   filter: blur(1.8px);
+}
+
+page-list ion-list button .smalDel {
+  height: 22px;
+  position: relative;
+  top: -15px;
+  left: -2px;
 }
 
 page-list ion-list button .status {
@@ -28425,6 +29265,12 @@ page-list ion-list button .message {
   margin-top: 5px;
 }
 
+page-list ion-list button .message .mediaIcon {
+  margin-right: 10px;
+  font-size: 20px;
+  color: grey;
+}
+
 page-list ion-list button .unreadText {
   font-size: 12px;
   color: white;
@@ -28450,4 +29296,172 @@ page-list ion-footer .footerBtn {
   font-size: 14px;
   color: #DE127A;
   letter-spacing: 0;
+}
+
+page-list .imgProf {
+  margin-top: 5px;
+  width: 95%;
+  height: 95%;
+  -webkit-filter: blur(4px);
+  -moz-filter: blur(4px);
+  -o-filter: blur(4px);
+  -ms-filter: blur(4px);
+  filter: blur(4px);
+}
+
+page-list #div1 {
+  margin-top: 5%;
+  height: 63%;
+  width: 92%;
+  background-color: white;
+  display: inline-block;
+  border: 1px solid lightgrey;
+  -webkit-transform: rotate(-1deg);
+  transform: rotate(-1deg);
+}
+
+page-list #div2 {
+  height: 102%;
+  width: 102%;
+  background-color: white;
+  display: inline-block;
+  border: 1px solid lightgrey;
+  -webkit-transform: rotate(5deg);
+  transform: rotate(5deg);
+}
+
+page-list .div3 {
+  margin-top: 15px;
+  height: 90%;
+  width: 90%;
+  background-color: white;
+  display: inline-block;
+  -webkit-transform: rotate(-5deg);
+  transform: rotate(-5deg);
+}
+
+page-list #searchActions {
+  margin-top: 40px;
+  width: 110%;
+  background-color: white;
+  margin-left: -25px;
+  padding-bottom: 11.5%;
+  border-radius: 50% 50% 0% 0%;
+}
+
+page-list #searchActions #nameSearch {
+  font-size: 28px;
+  color: #4A4A4A;
+  font-family: Avenir-Book;
+  letter-spacing: 0.58px;
+  padding-top: 30px;
+}
+
+page-list #searchActions div {
+  font-family: Avenir-Book;
+  font-size: 12px;
+  color: #4A4A4A;
+  margin-top: 5px;
+  letter-spacing: 0.5px;
+}
+
+page-list #searchActions button {
+  width: 40%;
+  height: 40px;
+  display: inline-block;
+  border-radius: 40px;
+  background: #6CB4F3;
+  font-family: Avenir-Heavy;
+  letter-spacing: 1px;
+  text-align: center;
+  -webkit-box-shadow: 2px 2px 1px lightgrey;
+  box-shadow: 2px 2px 1px lightgrey;
+}
+
+page-login .ioncontent {
+  text-align: center;
+}
+
+page-login .errorMessage {
+  text-align: center;
+  font-size: 14px;
+  color: grey;
+  font-family: arial;
+  padding-top: 40px;
+}
+
+page-login .errorMessage span {
+  color: red;
+  font-size: 18px;
+}
+
+page-login ion-list ion-item {
+  border: none;
+}
+
+page-login ion-list ion-item ion-label {
+  font-family: Avenir-Medium;
+  font-size: 17px;
+  letter-spacing: 1px;
+  height: red;
+}
+
+page-login ion-list ion-item ion-input {
+  border-bottom: 1px solid rgba(211, 59, 160, 0.3);
+}
+
+page-login ion-list ion-item button {
+  width: 100%;
+  color: #DE127A;
+  height: 45px;
+  border: 1px solid #DE127A;
+  border-radius: 25px;
+  background-color: white;
+  font-size: 14px;
+}
+
+page-login ion-list ion-item .fgPass {
+  height: 20px;
+  border: none;
+  text-decoration: underline;
+  font-family: Avenir-Book;
+  font-size: 14px;
+  color: #6CB4F3;
+  letter-spacing: 0.28px;
+}
+
+page-login ion-list ion-item .signup {
+  font-family: Avenir-Book;
+  border: none;
+  font-size: 14px;
+  color: #DE127A;
+  letter-spacing: 0.58px;
+  text-align: center;
+}
+
+page-login ion-list .countryCode {
+  width: 40%;
+  display: inline-block;
+  margin: 0px;
+  background-color: red;
+}
+
+page-login ion-list .phoneNumber {
+  width: 40%;
+  display: inline-block;
+  background-color: blue;
+  margin: 0px;
+}
+
+page-pop .ionButton {
+  font-family: Avenir-Medium;
+  font-size: 16px;
+  color: #4A4A4A;
+  letter-spacing: 0;
+  padding-left: 10px;
+}
+
+page-pop .ionButton ion-icon {
+  font-size: 25px;
+  margin-right: 10px;
 }

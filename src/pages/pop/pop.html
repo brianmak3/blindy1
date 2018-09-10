@@ -1,0 +1,14 @@
+
+
+
+<ion-content>
+	<ion-list style="overflow: auto;">
+			<button class="ionButton" *ngFor="let item of items"  ion-item detail-none no-lines>
+				<div *ngIf="!item.icon" style="width:150px;">{{item.text}}</div>
+				<div *ngIf="item.icon" style="text-align: center;">
+					<ion-icon  name="{{item.icon}}"></ion-icon><span>{{item.text}}</span>
+				</div>
+			</button >
+	</ion-list>
+
+</ion-content>

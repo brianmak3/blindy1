@@ -10,7 +10,7 @@
        </div>
     </div>
     <ion-list id="ionList">
-      <button menuClose ion-item no-lines *ngFor="let p of pages" (click)="openPage(p)">
+      <button menuClose ion-item detail-none  no-lines *ngFor="let p of pages" (click)="openPage(p)">
         <img src="assets/icon/{{p.icon}}.png">        {{p.title}}
       </button>
     </ion-list>
@@ -20,6 +20,4 @@
   </ion-footer>
 
 </ion-menu>
-
-<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+<ion-nav #content [root]="rootPage" [ngClass]="{isInCall: isInCall, isNotInCall: !isInCall}"></ion-nav>

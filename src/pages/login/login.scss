@@ -1,0 +1,70 @@
+page-login {
+	.ioncontent {
+		text-align: center;
+	}
+	.errorMessage{
+		text-align: center;
+		font-size:14px;
+	    color: grey;
+	    font-family: arial;
+	    padding-top: 40px;
+	    span{
+			color:red;
+			font-size: 18px;
+		}
+	}
+	ion-list{
+		ion-item{
+			border: none;
+			ion-label{
+				font-family: Avenir-Medium;
+				font-size: 17px;
+				letter-spacing: 1px;
+				height:red;
+			}
+			ion-input{
+				border-bottom: 1px solid rgba(211, 59, 160 ,0.3);
+			}
+			button{
+				width:100%;
+				color: color($colors, primary);
+				height:45px;
+				border: 1px solid color($colors, primary);
+				border-radius: 25px;
+				background-color: white;
+				font-size: 14px;
+			}
+			.fgPass{
+				height: 20px;
+				border: none;
+				text-decoration: underline;
+				font-family: Avenir-Book;
+				font-size: 14px;
+				color: #6CB4F3;
+				letter-spacing: 0.28px;
+			}
+			.signup{
+				font-family: Avenir-Book;
+				border: none;
+				font-size: 14px;
+				color: #DE127A;
+				letter-spacing: 0.58px;
+				text-align: center;
+			}
+		}
+		.countryCode{
+			width: 40%;
+			display: inline-block;
+			margin: 0px;
+			background-color: red;
+		}
+		.phoneNumber{
+			width: 40%;
+			display: inline-block;
+			background-color: blue;
+			margin: 0px;
+
+		}
+	}
+	
+}

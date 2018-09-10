@@ -1,6 +1,8 @@
 {
-  "name": "blindyy",
-  "app_id": "",
+  "name": "ionic-video-chat-3",
+  "app_id": "37adabfd",
   "type": "ionic-angular",
-  "integrations": {}
+  "integrations": {
+    "cordova": {}
+  }
 }

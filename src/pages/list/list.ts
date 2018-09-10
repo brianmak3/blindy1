@@ -9,7 +9,7 @@ export class ListPage {
   selectedItem: any;
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
-  title: String = 'Call History';
+  title: String = 'My Friends';
   saturation: number = 34;
   selectedAll = true;
   selectedMissed = false;
