@@ -10,6 +10,7 @@ ion-footer{
 }
 #picDiv{
 	height: 110px;
+	background-color: color($colors,primary);
 	overflow: hidden;
 	 -webkit-filter: blur(5px);
 	  -moz-filter: blur(5px);

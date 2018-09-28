@@ -6,7 +6,7 @@
     <button ion-item  detail-none no-lines class="moreIcon"  style="display: none;">
       <ion-icon name="trash"></ion-icon>
     </button>
-    <button (click)="provider.showPopover('chatOptions', $event)" ion-item detail-none no-lines class="moreIcon" >
+    <button (click)="showPopover('chatOptions', $event, null)" ion-item detail-none no-lines class="moreIcon" >
       <ion-icon name="more"></ion-icon>
     </button>
     <button ion-item no-lines detail-none class="moreIcon">
@@ -68,11 +68,11 @@
 		</form>
 	</ion-toolbar>
 </ion-footer>-->
-<ion-footer style="padding:0px;height:55px;">
+<ion-footer style="padding:0px;height:55px;" [keyboardAttach]="content">
   <ion-row>
-	<button (click)="provider.showPopover('imageOptions', $event)" ion-item detail-none no-lines style="width: 45px;text-align: center;padding-top: 15px;"><ion-icon name="add"></ion-icon></button>
-	<textarea no-lines ion-item style="width: 62%;height:50px;margin:0px;padding-top:20px;display: inline-block;" placeholder="Type Message here"></textarea>
+	<button (click)="provider.showPopover('imageOptions', $event,null)" ion-item detail-none no-lines style="width: 45px;text-align: center;padding-top: 15px;"><ion-icon name="add"></ion-icon></button>
+	<textarea [(ngModel)]="data.message"  no-lines ion-item style="width: 62%;height:50px;margin:0px;padding-top:20px;display: inline-block;" placeholder="Type Message here"></textarea>
 	<button ion-item no-lines  detail-none style="text-align: center;padding-top: 15px;width: 48px;margin:0px;display: inline-block;"><ion-icon name="happy"></ion-icon></button>
-	<button ion-item no-lines  detail-none style="text-align: center;padding-top: 15px;width: 48px;margin:0px;display: inline-block;"><ion-icon name="send"></ion-icon></button>
+	<button ion-item no-lines (click)="send()" detail-none style="text-align: center;padding-top: 15px;width: 48px;margin:0px;display: inline-block;"><ion-icon name="send"></ion-icon></button>
  </ion-row>
 </ion-footer>

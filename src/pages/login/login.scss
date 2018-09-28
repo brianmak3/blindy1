@@ -13,7 +13,39 @@ page-login {
 			font-size: 18px;
 		}
 	}
+
 	ion-list{
+		.phoneNumber{
+			margin-top: 15px;
+		width: 20%;
+		font-family: Avenir-Medium;
+		font-size: 17px;
+		letter-spacing: 1px;
+		color: color($colors, primary);
+		}
+		display: inline-block;
+		text-align: left;
+		.code{
+		display: inline-block;
+		text-align: center;
+		color: #605F61;
+		border-radius: 0px;
+		height:25px;
+		background-color: transparent;
+		border: none;
+		margin-right: 20px;
+		width: 20%;
+		border-bottom: 1px solid rgba(211, 59, 160 ,0.3);
+		}
+		.number{
+		text-align: center;
+		color: #605F61;
+		border: none;
+		display: inline-block;
+		width:70%;
+		border-bottom: 1px solid rgba(211, 59, 160 ,0.3);
+		}
+	
 		ion-item{
 			border: none;
 			ion-label{
@@ -22,7 +54,7 @@ page-login {
 				letter-spacing: 1px;
 				height:red;
 			}
-			ion-input{
+			ion-input, input,select{
 				border-bottom: 1px solid rgba(211, 59, 160 ,0.3);
 			}
 			button{
@@ -52,19 +84,8 @@ page-login {
 				text-align: center;
 			}
 		}
-		.countryCode{
-			width: 40%;
-			display: inline-block;
-			margin: 0px;
-			background-color: red;
-		}
-		.phoneNumber{
-			width: 40%;
-			display: inline-block;
-			background-color: blue;
-			margin: 0px;
-
-		}
+		
 	}
+	
 	
 }

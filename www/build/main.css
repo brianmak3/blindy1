@@ -28028,6 +28028,7 @@ ion-footer .version {
 
 #picDiv {
   height: 110px;
+  background-color: #DE127A;
   overflow: hidden;
   -webkit-filter: blur(5px);
   -moz-filter: blur(5px);
@@ -28400,11 +28401,11 @@ modal-contact button.close {
 }
 
 page-chat .tail svg {
-  fill: #817ecb;
+  fill: #DE127A;
 }
 
 page-chat .chat-from .tail svg {
-  fill: #ebeaf2;
+  fill: #6CB4F3;
 }
 
 .send-button {
@@ -28499,6 +28500,10 @@ page-account .account-image {
 page-account .account-image img {
   height: 100%;
   width: 100%;
+}
+
+page-chat ion-avatar {
+  opacity: 0;
 }
 
 page-chat .profileImage {
@@ -28634,7 +28639,7 @@ page-chat .moreIcon {
   font-size: 18px;
   float: right;
   background-color: transparent;
-  padding-top: 10px;
+  padding-top: 20px;
   color: #444444;
   display: inline-block;
   width: 52px;
@@ -28896,6 +28901,10 @@ page-contacts .chat-list .item:not(.online) p {
   opacity: 0.3;
 }
 
+page-list #attachment {
+  height: 100px;
+}
+
 page-list #title {
   font-family: Avenir-Medium;
   margin-top: 10px;
@@ -28952,6 +28961,7 @@ page-list .ageDiv {
   padding-top: 20px;
   padding-left: 10px;
   border-bottom: 1px solid #f2f2f2;
+  height: auto;
 }
 
 page-list .ageDiv button {
@@ -28970,7 +28980,7 @@ page-list .ageDiv button span {
   text-align: left;
 }
 
-page-list .ageDiv button ion-checkbox {
+page-list .ageDiv button ion-radio {
   float: right;
 }
 
@@ -29035,6 +29045,8 @@ page-list #updateBtn {
   color: #FFFFFF;
   text-align: center;
   letter-spacing: 1px;
+  width: 100%;
+  height: 40px;
 }
 
 page-list .profileImage {
@@ -29395,6 +29407,42 @@ page-login .errorMessage span {
   font-size: 18px;
 }
 
+page-login ion-list {
+  display: inline-block;
+  text-align: left;
+}
+
+page-login ion-list .phoneNumber {
+  margin-top: 15px;
+  width: 20%;
+  font-family: Avenir-Medium;
+  font-size: 17px;
+  letter-spacing: 1px;
+  color: #DE127A;
+}
+
+page-login ion-list .code {
+  display: inline-block;
+  text-align: center;
+  color: #605F61;
+  border-radius: 0px;
+  height: 25px;
+  background-color: transparent;
+  border: none;
+  margin-right: 20px;
+  width: 20%;
+  border-bottom: 1px solid rgba(211, 59, 160, 0.3);
+}
+
+page-login ion-list .number {
+  text-align: center;
+  color: #605F61;
+  border: none;
+  display: inline-block;
+  width: 70%;
+  border-bottom: 1px solid rgba(211, 59, 160, 0.3);
+}
+
 page-login ion-list ion-item {
   border: none;
 }
@@ -29406,7 +29454,7 @@ page-login ion-list ion-item ion-label {
   height: red;
 }
 
-page-login ion-list ion-item ion-input {
+page-login ion-list ion-item ion-input, page-login ion-list ion-item input, page-login ion-list ion-item select {
   border-bottom: 1px solid rgba(211, 59, 160, 0.3);
 }
 
@@ -29437,20 +29485,6 @@ page-login ion-list ion-item .signup {
   color: #DE127A;
   letter-spacing: 0.58px;
   text-align: center;
-}
-
-page-login ion-list .countryCode {
-  width: 40%;
-  display: inline-block;
-  margin: 0px;
-  background-color: red;
-}
-
-page-login ion-list .phoneNumber {
-  width: 40%;
-  display: inline-block;
-  background-color: blue;
-  margin: 0px;
 }
 
 page-pop .ionButton {

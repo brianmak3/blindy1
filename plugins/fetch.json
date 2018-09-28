@@ -1,0 +1,13 @@
+{
+  "cordova-plugin-googlemaps": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-googlemaps"
+    },
+    "is_top_level": true,
+    "variables": {
+      "API_KEY_FOR_ANDROID": "AIzaSyD5Evnt0Tsn4mvTU_CtsoJdHag3GT5KA00",
+      "API_KEY_FOR_IOS": "AIzaSyD5Evnt0Tsn4mvTU_CtsoJdHag3GT5KA00"
+    }
+  }
+}

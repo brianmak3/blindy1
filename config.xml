@@ -105,4 +105,8 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
     <plugin name="cordova-plugin-crosswalk-webview" spec="^2.3.0" />
     <plugin name="cordova-plugin-iosrtc" spec="^4.0.2" />
+    <plugin name="cordova-plugin-googlemaps" spec="^2.4.3">
+        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyD5Evnt0Tsn4mvTU_CtsoJdHag3GT5KA00" />
+        <variable name="API_KEY_FOR_IOS" value="AIzaSyD5Evnt0Tsn4mvTU_CtsoJdHag3GT5KA00" />
+    </plugin>
 </widget>

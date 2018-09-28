@@ -213,6 +213,7 @@ export class ChatService {
 
 	// send a new message to another contact
 	send(id, message, attachment) {
+		
 		console.debug('send chatid:', id)
 		// @todo: make a promise so we know when it has fully been sent
 		this.socket.emit('message', id, message, attachment);

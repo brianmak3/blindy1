@@ -2,7 +2,7 @@
 
 import { Injectable, ViewChild } from '@angular/core';
 import { Events, Nav, NavController, AlertController, App, Platform } from 'ionic-angular';
-import { AudioService, SocketService, ContactService } from './';
+import { AudioService, SocketService, ContactService, Provider } from './';
 
 import { LoginPage } from '../pages';
 
@@ -15,10 +15,10 @@ export class LoginService {
 	user = null
 	playLoginSound = true
 	complete = null
-
+    acc: any;
 	private nav:NavController;
 
-	constructor(private contactService: ContactService, public platform: Platform, app: App, public audio: AudioService, public socket: SocketService, public events: Events, public alertCtrl: AlertController, public storage: Storage) {
+	constructor(private contactService: ContactService,public provider: Provider, public platform: Platform, app: App, public audio: AudioService, public socket: SocketService, public events: Events, public alertCtrl: AlertController, public storage: Storage) {
 
 		this.complete = this.makeComplete();
 
@@ -102,12 +102,7 @@ export class LoginService {
 			};
 
 			let error = (message) => {
-				let alert = this.alertCtrl.create({
-					title: 'Error',
-					subTitle: message,
-					buttons: ['OK']
-				});
-				alert.present();
+				  this.provider.error = message.error
 				done();
 
 				//reject('login fail');
@@ -115,6 +110,7 @@ export class LoginService {
 
 			let success = (user, token) => {
 				console.debug('Login: ', user);
+				this.acc = user;
 				if (token) {
 					this.storage.set('token', {token: token});
 				}

@@ -2,16 +2,21 @@
 <ion-content class="ioncontent">
  <img src="assets/imgs/index.png">
  <ion-list padding>
-  <div *ngIf="error" class="errorMessage" no-lines>
-    <span>*</span> {{error}}
+  <div *ngIf="provider.error" class="errorMessage" no-lines>
+    <span>*</span> {{provider.error}}
   </div>
-   <ion-item *ngFor="let input of Inputs.inputs" class=“ionItem” style="border: none;"  no-lines>
-     <ion-label floating color="primary">{{input.name}}</ion-label>
-     <ion-input (ionFocus)="error = undefined" type="{{input.type}}" [(ngModel)]="input.value"></ion-input>
+   <ion-item *ngFor="let input of Inputs.inputs let y = index" class=“ionItem” style="border: none;"  no-lines>
+     <ion-label *ngIf="y !==2" floating color="primary">{{input.name}}</ion-label>
+     <ion-input *ngIf="y !==2" (ionFocus)="provider.error = undefined" type="{{input.type}}" [(ngModel)]="input.value"></ion-input>
+    <div class="phoneNumber">Phone number</div><br *ngIf="y == 2" />
+    <div *ngIf="y ==2" >
+    <button class="code" (click)="showPopover('countriesList', $event, null)">{{provider.countryCode}}</button>
+    <input class="number" (focus)="provider.error = undefined" type="{{input.type}}" [(ngModel)]="input.value" (keypress)="numberKeyed($event)" placeholder="Phone number">
+  </div>
    </ion-item>
    <ion-item style="margin-top: 20px; border: none" no-lines>
      <button (click)="indexAction('login')" *ngIf="Inputs.title =='Login' " [disabled]="!Inputs.inputs[0].value || Inputs.inputs[0].value.trim() == '' || !Inputs.inputs[1].value || Inputs.inputs[1].value.trim() == ''">Login</button>
-     <button (click)="indexAction('signup')" *ngIf="Inputs.title =='Sign up' " [disabled]="!Inputs.inputs[0].value || Inputs.inputs[0].value.trim() == '' || !Inputs.inputs[1].value || Inputs.inputs[1].value.trim() == '' || !Inputs.inputs[2].value || !Inputs.inputs[3].value || Inputs.inputs[3].value.trim() == '' ">Sign up</button>
+     <button (click)="indexAction('signup')" *ngIf="Inputs.title =='Sign up' " [disabled]="!Inputs.inputs[0].value || Inputs.inputs[0].value.trim() == '' || !Inputs.inputs[1].value || Inputs.inputs[1].value.trim() == '' || !Inputs.inputs[2].value || !Inputs.inputs[3].value || Inputs.inputs[3].value.trim() == ''">Sign up</button>
    </ion-item>
     <ion-item *ngIf="Inputs.title =='Login' "  style="margin-top: -10px;border: none;" no-lines>
      <button class="fgPass">Forgot password?</button>

@@ -1,17 +1,17 @@
-<ion-menu [content]="content">
+<ion-menu [content]="content" *ngIf="provider.acc">
   <ion-content style="background-color: rgba(242, 242, 242, 0.4);">
     <div id="picDiv">
-      <img src="assets/imgs/trial.png">
+      <img *ngIf="provider.acc && provider.acc.image !== 'assets/imgs/avatar.jpg' " src="{{provider.acc.image}}" src="{{provider.acc.image}}">
     </div>
     <div id="imgDiv">
-       <img src="assets/imgs/trial.png">
+       <img *ngIf="provider.acc" src="{{provider.acc.image}}" >
        <div id="profileName">
-          Edward
+         {{provider.acc.username}}
        </div>
     </div>
     <ion-list id="ionList">
       <button menuClose ion-item detail-none  no-lines *ngFor="let p of pages" (click)="openPage(p)">
-        <img src="assets/icon/{{p.icon}}.png">        {{p.title}}
+        <img *ngIf="p.icon" src="assets/icon/{{p.icon}}.png">{{p.title}}
       </button>
     </ion-list>
   </ion-content>

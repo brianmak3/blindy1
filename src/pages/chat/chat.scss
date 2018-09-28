@@ -1,4 +1,7 @@
 page-chat {
+    ion-avatar {
+        opacity: 0;
+    }
 	.profileImage {
         height: 40px;
         width: 40px;
@@ -124,7 +127,7 @@ page-chat {
         font-size: 18px;
         float: right;
         background-color: transparent;
-        padding-top: 10px;
+        padding-top: 20px;
         color: #444444;
         display: inline-block;
         width: 52px;

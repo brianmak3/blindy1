@@ -1,17 +1,16 @@
 <ion-header>
   <ion-navbar color="white" col-12>
   <button ion-button id="clearBtn">Clear</button>
-
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <div id="title" col-4 offset-2 *ngIf="title !== 'Call History' ">{{title}}</div>
+    <div id="title" col-4 offset-2 *ngIf="provider.title !== 'Call History' ">{{provider.title}}</div>
 
-    <button *ngIf="title == 'Home' || title == 'My Profile' || title == 'My Matches' " id="messages"><img src="assets/icon/message.png">
+    <button  *ngIf="(provider.title == 'Home' || provider.title == 'My Profile' || provider.title == 'My Matches' || provider.title == 'Settings')&& (provider.acc.profile)" id="messages"><img src="assets/icon/message.png">
       <span>3</span>
     </button>
-    <button ion-item no-lines detail-none  id="editBtn">Edit</button>
-    <ion-col *ngIf="title == 'Call History' ">
+    <button *ngIf="provider.title !== 'Settings' && provider.title !== 'My Matches' && provider.title !== 'My Profile'" ion-item no-lines detail-none  id="editBtn">Edit</button>
+    <ion-col *ngIf="provider.title == 'Call History' ">
         <ion-row   class="distinguish">
           <ion-col col-6 [ngClass]="selectedAll?'selected':'unselected'" class="allButton" (click)="selectAll()">All</ion-col>
           <ion-col col-6 [ngClass]="selectedMissed?'selected':'unselected'" (click)="selectMissed()">Missed</ion-col>
@@ -26,59 +25,62 @@
 
 
       <!--This is the Home searhc Part -->
-      <ion-col  *ngIf="(title == 'Home' || title == 'Settings') && resultFound">
+      <ion-col  *ngIf="(provider.title == 'Home' || provider.title == 'Settings') && !provider.resultFound && provider.acc">
        <div class="ageDiv">
          <span class="subtitle">Your Match Age Range</span><br/>
          <ion-item no-lines>
-          <ion-range min="18" max="120" pin="true" [(ngModel)]="saturation" color="primary">
+          <ion-range min="18" max="120" pin="true" [(ngModel)]="provider.acc.settings.age" color="primary">
             <ion-label range-left>18</ion-label>
           </ion-range>
         </ion-item>
        </div>
-        <div class="ageDiv">
+        <ion-list radio-group [(ngModel)]="provider.acc.settings.intension" class="ageDiv">
          <span class="subtitle">Your Match Intentions</span><br/><br/>
-           <button *ngFor="let intension of intensions let x = index" col-6>
+           <button *ngFor="let intension of provider.intensions let x = index" col-6>
             <span>{{intension.title}}</span>
-            <ion-checkbox [(ngModel)]="intensions[x].value"></ion-checkbox>
+            <ion-radio value="{{intension.title}}"></ion-radio>
           </button>
-       </div>
-        <div *ngFor="let setting of settings" class="othersDiv">
-          <span class="subtitle">{{setting.title}}</span>
-          <button ion-item detail-none no-lines col-6>{{setting.Select}} <img src="assets/icon/rightArrow.png"></button>
+       </ion-list>
+        <div *ngFor="let title of provider.titles let q = index" class="othersDiv" (click)="showPopover(title, $event, title)">
+          <span class="subtitle">{{title}}</span>
+          <button *ngIf="q == 0" ion-item detail-none no-lines col-6>{{provider.acc.settings.gender}} <img src="assets/icon/rightArrow.png"></button>
+          <button *ngIf="q == 1"ion-item detail-none no-lines col-6>{{provider.acc.settings.orientation}} <img src="assets/icon/rightArrow.png"></button>
+          <button *ngIf="q == 2" ion-item detail-none no-lines col-6>{{provider.acc.settings.country}} <img src="assets/icon/rightArrow.png"></button>
+          <button *ngIf="q == 3" ion-item detail-none no-lines col-6>{{provider.acc.settings.education}} <img src="assets/icon/rightArrow.png"></button>
         </div>
-        <div *ngIf="title == 'Home' ">
-          <button ion-item detail-none  no-lines id="randomSearchBtn"> Random search</button>
-          <button ion-item detail-none  no-lines id="findSearchBtn"> Find match</button>
+        <div *ngIf="provider.title == 'Home' ">
+          <button ion-item detail-none  no-lines id="randomSearchBtn" (click)="provider.search('random')"> Random search</button>
+          <button ion-item detail-none  no-lines id="findSearchBtn" (click)="provider.search('specific')"> Find match</button>
         </div>
-        <button  *ngIf="title == 'Settings' "ion-item no-lines id="updateBtn">Update</button>
+        <button [disabled]="!provider.acc.settings.age || !provider.acc.settings.intension || !provider.acc.settings.gender || !provider.acc.settings.orientation || !provider.acc.settings.country || !provider.acc.settings.education" (click)="provider.UpdateSettings()" *ngIf="provider.title == 'Settings' " no-lines id="updateBtn" style="">Update</button>
+        <div style="opacity:0;">toast</div>
       </ion-col>
 
  <!--This is the Home match Part -->
-      <ion-col  *ngIf="title == 'Home' && !resultFound" style="background-color: rgb(242, 242, 242);text-align: center;padding: 0px;">
+      <ion-col  *ngIf="provider.title == 'Home' && provider.resultFound" style="background-color: rgb(242, 242, 242);text-align: center;padding: 0px;">
        <!-- <img src="assets/imgs/album.png">
         -->
         <div id="div1">
           <div id="div2">
             <ion-slides>
-               <ion-slide class="div3"><img src="assets/imgs/trial.png" class="imgProf"></ion-slide>
-               <ion-slide class="div3"><img src="assets/imgs/album.png" class="imgProf"></ion-slide>
-               <ion-slide class="div3"><img src="assets/imgs/index.png" class="imgProf"></ion-slide>
+               <ion-slide *ngFor="let pic of provider.resultFound.images" class="div3">
+                <img src="{{pic.url}}" class="imgProf"></ion-slide>
           </ion-slides>
         </div>
       </div>
 
       <div id="searchActions">
-       <div id="nameSearch">Jessica</div>
-       <div> 22 years old / female / straight</div><br/>
-       <button style="color:white;font-size:16px;">Reject</button>
-       <button style="color:white;font-size:16px;background-color: #DE127A; margin-left: 5%">Accept</button>
+       <div id="nameSearch">{{provider.resultFound.username}}</div>
+       <div> {{provider.resultFound.settings.age +' years old / '+ provider.resultFound.settings.gender+' / '+provider.resultFound.settings.orientation}}</div><br/>
+       <button style="color:white;font-size:16px;" (click)="provider.resultFound = undefined">Reject</button>
+       <button (click)="goToChat()" style="color:white;font-size:16px;background-color: #DE127A; margin-left: 5%">Chat</button>
       </div>
        
       </ion-col>
 
 
       <!-- My Matches !-->
-  <ion-col style="background-color: #F8F8F9;"  *ngIf="title == 'My Matches' ">
+  <ion-col style="background-color: #F8F8F9;"  *ngIf="provider.title == 'My Matches' ">
         <div id="searchDiv">
            <ion-icon name="search" style="padding-left: 3px;"></ion-icon>
            <input placeholder="search" />
@@ -99,7 +101,7 @@
 
 
       <!--This is the friends part -->
-      <ion-col style="background-color: #F8F8F9;" *ngIf="title == 'My Friends' ">
+      <ion-col style="background-color: #F8F8F9;" *ngIf="provider.title == 'My Friends' ">
         <div id="searchDiv">
            <ion-icon name="search" style="padding-left: 3px;"></ion-icon>
            <input placeholder="search" />
@@ -120,7 +122,7 @@
       </ion-col>
 
        <!--This is the call history part -->
-      <ion-col style="background-color: #F8F8F9;" *ngIf="title == 'Call History' ">
+      <ion-col style="background-color: #F8F8F9;" *ngIf="provider.title == 'Call History' ">
         <div id="searchDiv">
            <ion-icon name="search" style="padding-left: 3px;"></ion-icon>
            <input placeholder="search" />
@@ -150,15 +152,14 @@
       </ion-col>
 
        <!--This is the my profile part -->
-      <ion-col *ngIf="title == 'My Profile' " style="text-align: center;padding:0px;background-color: rgb(232, 232, 232);height: 100%;">
+      <ion-col *ngIf="provider.title == 'My Profile' " style="text-align: center;padding:0px;background-color: rgb(232, 232, 232);height: 100%;">
        <div id="picDiv" style="height:150px">
-            <img src="assets/imgs/trial.png">
+            <img *ngIf="provider.acc && provider.acc.image !== 'assets/imgs/avatar.jpg' " src="{{provider.acc.image}}">
         </div>
         <div id="imgDiv" class="profileImage">
-           <img src="assets/imgs/trial.png" style="display: none;">
-           <img src="assets/imgs/upload.png">
+           <img src="{{provider.acc.image}}" (click)="showPopover('profileImage', $event, null)">
            <div id="profileName" style="border: none;">
-              Edward
+             {{provider.acc.username}}
            </div>
            <button style="display: none;" id="editBtn" no-lines detail-none  ion-item>Edit profile</button>
            <div style="text-align: center;">
@@ -181,7 +182,7 @@
 </ion-content>
 
 <!--archive and delete button-->
-<ion-footer  *ngIf="title == 'My Friends' ">
+<ion-footer  *ngIf="provider.title == 'My Friends' ">
   <button ion-item detail-none  class="footerBtn">Archive</button>
   <button ion-item detail-none  class="footerBtn" style="text-align:right">Delete</button>
 </ion-footer>

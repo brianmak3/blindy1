@@ -4,9 +4,8 @@ import { Platform, NavController, Nav , ViewController, Events } from 'ionic-ang
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { ListPage } from '../pages';
-import { ChatPage } from '../pages';
-import { CallService } from '../services';
+import { ListPage, LoginPage } from '../pages';
+import { CallService, Provider, LoginService } from '../services';
 import { CallModalTrigger } from '../components';
 
 
@@ -21,18 +20,19 @@ declare var cordova:any;
 })
 export class MyApp {
 	 @ViewChild(Nav) nav: Nav;
-	rootPage = ListPage;
+	rootPage: any;
 	isInCall = false
     pages: Array<{title: string, component: any, icon: string}>;
-	constructor(platform: Platform, callService: CallService, events: Events, callModal: CallModalTrigger, statusBar: StatusBar, splashScreen: SplashScreen) {
+	constructor(platform: Platform, public loginService: LoginService, public provider: Provider,callService: CallService, events: Events, callModal: CallModalTrigger, statusBar: StatusBar, splashScreen: SplashScreen) {
 			 this.pages = [
-		      { title: 'Home', component: ChatPage, icon: 'home' },
+		      { title: 'Home', component: ListPage, icon: 'home' },
 		      { title: 'My Matches', component: ListPage, icon: 'matches' },
 		      { title: 'My Friends', component: ListPage, icon: 'friends' },
 		      { title: 'Call History', component: ListPage, icon: 'history' },
 		      { title: 'My Profile', component: ListPage, icon: 'profile' },
 		      { title: 'Settings', component: ListPage, icon: 'settings' },
 		      { title: 'Help', component: ListPage, icon: 'help' },
+		      { title: 'Log out', component: '', icon: '' }
 		    ];
 
 		// format chat date diffs
@@ -55,12 +55,23 @@ export class MyApp {
 		});
 
 		platform.ready().then(() => {
+			this.provider.userLoginCheck();
 			statusBar.styleBlackTranslucent();
 			splashScreen.hide();
-
+      
 			if (platform.is('cordova') && cordova.plugins.iosrtc) {
 				cordova.plugins.iosrtc.registerGlobals();
 			}
+			let thisx = this;
+			setTimeout(function(){
+               if(thisx.provider.acc){
+				   thisx.rootPage = ListPage
+				}else{
+				   thisx.rootPage = LoginPage
+				}
+			},500)
+
+			
 		});
 
 		events.subscribe('call.status.isincall', status => {
@@ -69,6 +80,22 @@ export class MyApp {
 		});
 	}
 	openPage(page) {
-    this.nav.push(page.component, {page: page.title});
+		if(page.component){
+		    this.provider.title = page.title;
+		     if(page.title == 'Settings')
+               this.provider.userLoginCheck();
+		}else{
+			this.provider.storage.remove('blindyVariables').then(()=>{
+				let thisx = this;
+				this.loginService.logout();
+		       this.nav.setRoot(LoginPage, {}, {animate: true, direction: 'forward'});
+				setTimeout(function(){
+                     thisx.provider.acc = undefined;
+				}, 1000)
+			}, err=>{
+				console.log(err)
+			});
+		}
   }
+
 }

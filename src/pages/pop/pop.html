@@ -1,10 +1,12 @@
 
 
 
-<ion-content>
+<ion-content style="background-color: #FBF7FC;">
 	<ion-list style="overflow: auto;">
-			<button class="ionButton" *ngFor="let item of items"  ion-item detail-none no-lines>
-				<div *ngIf="!item.icon" style="width:150px;">{{item.text}}</div>
+			<button  *ngFor="let item of items" (click)="itemClicked(item)" ion-item detail-none no-lines class="ionButton" style="background-color: transparent;">
+				<div *ngIf="!item.icon && data !== 'Country' &&  type !== 'countriesList'" style="width:150px;">{{item.text}}</div>
+				<div *ngIf="!item.icon && data == 'Country'" style="width:150px;">{{item}}</div>
+				<div *ngIf="!item.icon && type == 'countriesList'" style="width:270px">{{item.name}}<span style="float: right;">{{item.code}}</span></div>
 				<div *ngIf="item.icon" style="text-align: center;">
 					<ion-icon  name="{{item.icon}}"></ion-icon><span>{{item.text}}</span>
 				</div>

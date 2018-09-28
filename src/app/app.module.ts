@@ -9,9 +9,9 @@ import { Keyboard } from '@ionic-native/keyboard';
 import { NativeAudio } from '@ionic-native/native-audio';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpModule } from '@angular/http';
-
+//import { IonicImageViewerModule } from 'ionic-img-viewer'
 import { MomentModule } from 'angular2-moment';
-
+import { Geolocation } from '@ionic-native/geolocation';
 import { ChatsPage, ChatPage, LoginPage, AccountPage, ContactsPage, ListPage, PopPage } from '../pages';
 import { CallModal, ContactModal, UserImage, CallModalTrigger, ContactAddModal, KeyboardAttach } from '../components';
 import { AttachmentService, AudioService, CallService, ChatService, ContactService, LoginService, SocketService, VideoService, Provider} from '../services';
@@ -35,6 +35,7 @@ import { AttachmentService, AudioService, CallService, ChatService, ContactServi
 	imports: [
 		BrowserModule,
 		HttpModule,
+		//IonicImageViewerModule,
 		IonicModule.forRoot(MyApp, {
 			backButtonText: 'Back',
 			iconMode: 'ios',
@@ -66,6 +67,7 @@ import { AttachmentService, AudioService, CallService, ChatService, ContactServi
 		CallModalTrigger,
 		LoginService,
 		AudioService,
+		Geolocation,
 		SocketService,
 		CallService,
 		ContactService,

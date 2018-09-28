@@ -1,12 +1,12 @@
 // chat detail page
 
 import { Component, ViewChild } from '@angular/core';
-import { NavParams, Content, Events, ModalController } from 'ionic-angular';
+import { NavParams, Content, Events, ModalController, PopoverController } from 'ionic-angular';
 import { LoginService, ChatService, AudioService, ContactService, AttachmentService, Provider } from '../../services';
 import { ContactAddModal } from '../../components';
 import { Config } from '../../app/config';
 import { DomSanitizer } from '@angular/platform-browser';
-
+import { PopPage } from '../';
 import { Observable } from 'rxjs/Observable';
 
 
@@ -40,8 +40,7 @@ export class ChatPage {
 	messageHandleWrap = null
 	attachments = Config.attachments;
 
-	constructor(private sanitizer: DomSanitizer, public provider: Provider, private attachment: AttachmentService, public contactService: ContactService, private modalCtrl: ModalController, private events: Events, params: NavParams, private loginService: LoginService, private chatService: ChatService, private audioService: AudioService) {
-		console.log(contactService.user.id);
+	constructor(public popover: PopoverController, private sanitizer: DomSanitizer, public provider: Provider, private attachment: AttachmentService, public contactService: ContactService, private modalCtrl: ModalController, private events: Events, params: NavParams, private loginService: LoginService, private chatService: ChatService, private audioService: AudioService) {
 		this.messages = [
 			{from: 'Brian', message: "Well and good i don't really care what will happen to you."},
 			{from: 'Henry', message: "Well and good i don't really care what will happen to you."},
@@ -113,13 +112,13 @@ export class ChatPage {
 
 	// send a message
 	send() {
+
 		let check = false;
 		if (Config.markdown) {
 			check = this.data.attachmentData || (this.data.message && marked.parse(this.data.message));
 		} else {
 			check = this.data.attachmentData || this.data.message;
 		}
-
 		if (!check) {
 			console.debug('No message to send: ', this.data.message);
 			return;
@@ -130,15 +129,15 @@ export class ChatPage {
 
 		console.debug('Sending message ', this.data.message)
 		this.audioService.play('message-sent');
-		this.chatService.send(this.chat.id, this.data.message, this.data.attachmentData);
+		this.chatService.send('+254704251068', this.data.message, this.data.attachmentData);
 
 		this.addMessage({
 			attachment: this.data.attachmentData,
 			message: this.data.message,
-			from: this.loginService.user.id
+			from: this.provider.acc.phone
 		});
 
-		this.chatService.updateLastMessage(this.chat.id, this.data.message);
+		this.chatService.updateLastMessage('+254704251068', this.data.message);
 		this.data.message = null;
 		this.data.attachmentData = null;
 		this.data.attachment = '';
@@ -212,4 +211,10 @@ export class ChatPage {
 	pause(e:any) {
 		e.target.pause();
 	}
+	showPopover(type, event, data){
+    let popOver = this.popover.create(PopPage, {type: type, data: data});
+    popOver.present({
+       ev: event
+    })
+  }
 }
